@@ -54,20 +54,20 @@
     var url = this.serverUrl;
     return $.ajax(url + '?emailAddress=' + key, {
       type: 'GET',
-      success: function (serverResponse) {
+      success: function(serverResponse) {
         console.log(serverResponse[0]['id']);
         var id = serverResponse[0]['id'];
         $.ajax(url + '/' + id, {
           type: 'DELETE',
-          success: function (serverResponse) {
+          success: function(serverResponse) {
             console.log(serverResponse);
           },
-          error: function (serverResponse) {
+          error: function(serverResponse) {
             console.log(serverResponse);
           }
         });
       },
-      error: function (serverResponse) {
+      error: function(serverResponse) {
         console.log('Fail' + serverResponse.responseText);
       }
     });
